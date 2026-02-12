@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>likhi & roshith Hug</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: pink;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .card {
+      margin: 50px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 20px;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    button {
+      background: hotpink;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover { background: deeppink; }
+    .hearts {
+      position: fixed; width: 100%; height: 100%;
+      top: 0; left: 0; pointer-events: none; overflow: hidden;
+    }
+    .heart {
+      position: absolute; width: 20px; height: 20px;
+      background: red; transform: rotate(45deg);
+      animation: floatUp 4s linear infinite;
+      box-shadow: 0 0 10px crimson, 0 0 20px darkred;
+    }
+    .heart:before, .heart:after {
+      content: ""; position: absolute;
+      width: 20px; height: 20px; background: red; border-radius: 50%;
+      box-shadow: 0 0 10px crimson, 0 0 20px darkred;
+    }
+    .heart:before { top: -10px; left: 0; }
+    .heart:after { left: 10px; top: 0; }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+    }
+    .photo-frame { border: 5px solid pink; padding: 10px; margin: 20px auto; display: inline-block; background: white; }
+    .love-letter { font-family: "Times New Roman", serif; font-size: 18px; margin-top: 20px; text-align: left; white-space: pre-line; line-height: 1.6; }
+    .final { font-size: 24px; font-weight: bold; color: crimson; animation: glow 2s ease-in-out infinite alternate; }
+    @keyframes glow { from { text-shadow: 0 0 10px pink; } to { text-shadow: 0 0 20px red; } }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <!-- Background music from likhi folder -->
+<audio id="bgMusic" autoplay loop muted>
+  <source src="likhi/song.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="document.getElementById('bgMusic').muted=false">
+  ▶️ Play Music
+</button>
+
+  <!-- Page 1 -->
+  <div id="page1" class="card">
+    <h2>Likhi & roshith Hug 🤗</h2>
+    <img src="likhi/dude-bubu.gif" alt="Dude Bubu Hug" style="width:100%; border-radius:15px;">
+    <p>Do you want to see a surprise?</p>
+    <button onclick="nextPage(2)">Yes</button>
+    <button onclick="nextPage(5)">No</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div id="page2" class="card hidden">
+    <div class="photo-frame">
+      <img src="likhi/likhi.jpeg" alt="Photo" width="100%">
+    </div>
+   <div class="love-letter">
+💌 My dearest Roshith 💌,
+
+Every single moment with you feels like a miracle 🌸. From the way you smile 😍, to the way you hold me 🤗, to the way you listen when I pour my heart out 💭 — you are the reason my world feels brighter ✨. You are not just my partner, you are my best friend 👩‍❤️‍👨, my safe place 🏡, and my forever 💖.
+
+I want to spend endless mornings waking up beside you ☀️, endless nights falling asleep in your arms 🌙, endless adventures exploring the world together 🌍, and endless quiet evenings just holding hands ✋ while the stars shine above ✨. I want to share every laugh 😂, every tear 😢, every dream 🌈, and every silly moment 🤪 with you. You are my home 🏡, my comfort 🌸, my strength 💪, and my joy 💕.
+
+I promise to love you when the days are easy 🌞 and when they feel heavy 🌧️. I promise to stand by you when you are strong 💪 and when you feel weak 😔. I promise to remind you every single day that you are loved beyond measure ❤️, that you are cherished 💖, and that my heart beats only for you ❤️‍🔥.
+
+You are the reason I believe in forever 💍. You are the reason I believe in love 💞. You are the reason I believe that no matter what happens, life will always be beautiful 🌹 as long as I have you by my side 🤝.  
+
+So here I am, pouring my soul into these words 💌, hoping they wrap around you like the warmest hug 🤗, reminding you that you are never alone 🌸. You are my everything 🌎, my always 💖, my forever 💕.
+
+With all my love,  
+Forever yours 💖  
+</div>
+    <button onclick="nextPage(3)">Next ➡️</button>
+    <button onclick="nextPage(1)">⬅️ Back</button>
+  </div>
+
+  <!-- Page 3 -->
+  <div id="page3" class="card hidden">
+    <h2>💍 Will you marry me?</h2>
+    <button onclick="nextPage(4)">Yes</button>
+    <button onclick="nextPage(6)">No</button>
+    <button onclick="nextPage(2)">⬅️ Back</button>
+  </div>
+
+  <!-- Page 4 -->
+  <div id="page4" class="card hidden">
+    <div class="final">
+      💖 Happy Valentine's Day Roshith 💖<br>
+      I love you so much 💕<br><br>
+      Do you like this surprise? 🌸  
+      <button onclick="nextPage(7)">Yes</button>
+    </div>
+    <button onclick="nextPage(3)">⬅️ Back</button>
+  </div>
+
+  <!-- Page 5 -->
+  <div id="page5" class="card hidden">
+    <p>💔 I love you so much but now I hate you</p>
+    <p>Will you marry me?</p>
+    <button onclick="nextPage(6)">No</button>
+    <button onclick="nextPage(1)">⬅️ Back</button>
+  </div>
+
+  <!-- Page 6 -->
+  <div id="page6" class="card hidden">
+    <p>😢</p>
+    <button onclick="nextPage(3)">⬅️ Back</button>
+  </div>
+
+  <!-- Page 7: Final Hug -->
+  <div id="page7" class="card hidden">
+    <h2>Love you 💖 Byeee 🤗</h2>
+    <p>Sending you endless hugs and kisses 💋💞</p>
+    <button onclick="nextPage(1)">Restart 🔄</button>
+  </div>
+
+  <div class="hearts" id="hearts"></div>
+
+  <script>
+    function nextPage(page) {
+      document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+      document.getElementById('page'+page).classList.remove('hidden');
+      // Hearts float on every page
+      launchHearts();
+    }
+    function launchHearts() {
+      const hearts = document.getElementById('hearts');
+      for(let i=0;i<30;i++) {
+        const h = document.createElement('div');
+        h.className = 'heart';
+        h.style.left = Math.random()*100 + 'vw';
+        h.style.animationDuration = (2+Math.random()*3)+'s';
+        h.style.width = (15+Math.random()*25)+'px';
+        h.style.height = h.style.width;
+        hearts.appendChild(h);
+        setTimeout(()=>h.remove(),4000);
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
